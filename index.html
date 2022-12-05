@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid layout</title>
+    <Style>
+         @import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap');
+         @import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 1440px;
+            margin: auto;
+        }
+
+        .first-section .second-section .third-section {
+            max-width: 1170px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: 'Delius Unicase';
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 45px;
+            letter-spacing: 0.05em;
+            margin-bottom: 80px;
+            margin-top: 120px;
+        }
+
+        img {
+            border-radius: 20px;
+        }
+
+        .fr-grid-container {
+            display: grid;
+            grid-gap: 30px;
+            justify-content: center;
+            grid-template-columns: repeat(3, 370px);
+            grid-template-rows: repeat(3, 370px);
+            grid-auto-rows: 370px;
+            grid-template-areas: 
+                "element-1 element-2 element-2"
+                "element-3 element-3 element-4 "
+                "element-5 element-6 element-6";
+        }
+
+        .fr-grid-element-1 {
+            grid-area: element-1;
+        }
+
+        .fr-grid-element-2 {
+            grid-area: element-2;
+        }
+
+        .fr-grid-element-3 {
+            grid-area: element-3;
+        }
+        
+        .fr-grid-element-4 {
+            grid-area: element-4 ;
+        }
+
+        .fr-grid-element-5 {
+            grid-area: element-5;
+        }
+
+        .fr-grid-element-6 {
+            grid-area: element-6;
+        }
+
+        .grid-element {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .grid-element .p-left {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            width: 100%;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+            color: #FFFFFF;
+        }
+
+
+        .grid-element .p-right {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-family: 'Roboto';
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+            color: #FFFFFF;
+        }
+
+        @media (max-width: 1120px) {
+            .fr-grid-container {
+                grid-template-columns: 2fr;
+                grid-template-columns: repeat(6, 370px);
+                grid-auto-rows: 370px;
+                grid-template-areas:
+                "element-1 element-2"
+                "element-3 element-4"
+                "element-5 element-6"
+                ;
+            }
+
+            .sc-grid-container {
+                display: grid;
+                grid-gap: 10px;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(6, 370px);
+            }
+
+            .grid-element {
+                width: 370px;
+                height: 370px;
+            }
+
+            img {
+                width: 370px;
+                height: 370px;
+            }
+
+            .fr-grid-container{
+                width: 760px;
+            }
+
+            .sc-grid-container{
+                width: 760px;
+            }
+
+            .first-section .second-section {
+                width: 760px;
+                margin: auto;
+            }
+
+            body {
+            width: 1000px;
+            margin: auto;
+        }
+        }
+
+        .sc-grid_container {
+            display: grid;
+            grid-gap: 30px;
+            justify-content: center;
+            grid-template-columns: repeat(3, 370px);
+            grid-template-rows: repeat(4, 370px);
+            grid-auto-rows: 370px;
+            grid-template-areas: 
+                "element-7 element-8 element-8"
+                "element-9 element-9 element-10"
+                "element-9 element-9 element-10"
+                "element-11 element-11 element-12";
+        }
+
+        .sc-grid-element-7 {
+            grid-area: element-7;
+        }
+
+        .sc-grid-element-8 {
+            grid-area: element-8;
+        }
+
+        .sc-grid-element-9 {
+            grid-area: element-9;
+        }
+        
+        .sc-grid-element-10 {
+            grid-area: element-10;
+        }
+
+        .sc-grid-element-11 {
+            grid-area: element-11;
+        }
+
+        .sc-grid-element-12 {
+            grid-area: element-12;
+        }
+
+        .th-grid_container {
+            display: grid;
+            justify-content: center;
+            grid-gap: 30px;
+            grid-template-columns: repeat(3, 370px );
+            grid-auto-rows: 370px;
+            margin-bottom: 120px;
+        }
+
+        .th-grid-element-17 {
+            grid-column-start: 3;
+        }
+        
+        .th-grid-element-20  {
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+
+        .th-grid-element-21 {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        .th-grid-element-22 {
+            grid-column-start: 3;
+        }
+
+    </Style>
+</head>
+<body>
+    <div class="first-section">
+        <h2>Architectural Photography</h2>
+        <div class="fr-grid-container">
+            <div class="fr-grid-element-1 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image1.png" alt="" width="370" height="370px">
+                <p class="p-left">Jezael Melgoza</p>
+                <p class="p-right">5 June 2020</p>
+            </div>
+            <div class="fr-grid-element-2 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image2.png" alt="" width="770" height="370px">
+                <p class="p-left">Tom W</p>
+                <p class="p-right">30 March 2021</p>
+            </div>
+            <div class="fr-grid-element-3 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image3.png" alt="" width="770" height="370px">    
+                <p class="p-left">Johan Mouchet</p>
+                <p class="p-right">14 August 2019</p>        
+            </div>
+            <div class="fr-grid-element-4 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image4.png" alt="" width="370" height="370px">
+                <p class="p-left">Federico Di Dio</p>
+                <p class="p-right">29 October 2020 </p> 
+            </div>
+            <div class="fr-grid-element-5 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image5.png" alt="" width="370" height="370px">
+                <p class="p-left">Casey Horner</p>
+                <p class="p-right">9 July 2021</p> 
+            </div>
+            <div class="fr-grid-element-6 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image6.png" alt="" width="770" height="370px">
+                <p class="p-left">Alexander Rotker</p>
+                <p class="p-right">22 April 2022</p> 
+            </div>
+        </div>
+    </div>
+
+    <div class="second-section">
+        <h2> Still Life Photography</h2>
+        <div class="sc-grid_container">
+            <div class="sc-grid-element-7 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image7.png" alt="" width="370" height="370px">
+                <p class="p-left">Robert Lukeman</p>
+                <p class="p-right">30 June 2020</p>
+            </div>
+            <div class="sc-grid-element-8 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image8.png" alt="" width="770px" height="370px">
+                <p class="p-left">Sean Oulashin</p>
+                <p class="p-right">5 September 2019</p>
+            </div>
+            <div class="sc-grid-element-9 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image9.png" alt="" width="770px" height="770px">
+                <p class="p-left">John Fowler</p>
+                <p class="p-right">10 August 2021</p>
+            </div>
+            <div class="sc-grid-element-10 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image10.png" alt="" width="370" height="770px">
+                <p class="p-left">Dave Hoefler</p>
+                <p class="p-right">13 February 2021</p>
+            </div>
+            <div class="sc-grid-element-11 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image11.png" alt="" width="770px" height="370px">
+                <p class="p-left">Léonard Cotte</p>
+                <p class="p-right">5 September 2019</p>
+            </div>
+            <div class="sc-grid-element-12 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image12.png" alt="" width="370" height="370px">
+                <p class="p-left">Rob Mulally</p>
+                <p class="p-right">30 May 2020</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="third-section">
+        <h2> Portrait and Fashion Photography</h2>
+        <div class="th-grid_container">
+            <div class="th-grid-element-13 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image13.png" alt="" width="370" height="370">
+                <p class="p-left">Pooja Chaudhary</p>
+                <p class="p-right">30 June 2020</p>
+            </div>
+            <div class="th-grid-element-14 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image14.png" alt="" width="370" height="770">
+            </div>
+            <div class="th-grid-element-15 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image15.png" alt="" width="370" height="370">
+                <p class="p-left">Seth Doyle</p>
+                <p class="p-right">30 May 2020</p>
+            </div>
+            <div class="th-grid-element-16 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image16.png" alt="" width="370" height="370">
+                <p class="p-left">devn</p>
+                <p class="p-right">30 June 2020</p>
+            </div>
+            <div class="th-grid-element-17 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image19.png" alt="" width="370" height="770">
+            </div>
+            <div class="th-grid-element-18 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image18.png" alt="" width="370" height="770"> 
+            </div>
+            <div class="th-grid-element-19 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image17.png" alt="" width="370" height="370">
+                <p class="p-left">Seth Doyle</p>
+                <p class="p-right">30 June 2020</p>
+            </div>
+            <div class="th-grid-element-20 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image22.png" alt="" width="770" height="370">
+            </div>
+            <div class="th-grid-element-21 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image21.png" alt="" width="770" height="370">
+            </div>
+            <div class="th-grid-element-22 grid-element">
+                <img src="https://raw.githubusercontent.com/MarkMark1231/HWGrid/main/ImgGrid/image20.png" alt="" width="370" height="370">
+                <p class="p-left">Clem Onojeghuo</p>
+                <p class="p-right">1 July 2021</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
